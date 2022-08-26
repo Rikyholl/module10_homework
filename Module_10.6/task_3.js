@@ -41,7 +41,7 @@ function getGeolocation(position){
     mapLink = `https://www.openstreetmap.org/#map=15/${latitude}/${longitude}`;
 
     link = `
-        <a href="${mapLink}" class="messegeSender msgStyle"> Данные о вашем местоположении </a>
+        <a href="${mapLink}" target="_blank" class="messegeSender msgStyle"> Данные о вашем местоположении </a>
     `;
 
     blockMesseges.innerHTML += link;
@@ -92,7 +92,7 @@ geoBtn.addEventListener('click', function (){
        websocket.onopen = function (e){
             websocket.send(geo);
        };
-       websocket.onmessage = function (e){
+       websocket.onmessage = function (e){ 
             getGeolocation(e);
         };
         websocket.onerror = function (evt) {
